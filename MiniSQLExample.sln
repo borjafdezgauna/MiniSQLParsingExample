@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniSQL", "MiniSQL\MiniSQL.csproj", "{E68A589B-740F-40F8-A2C3-0B4D497AC94B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{B506EED7-11B0-43CC-9DA2-0A96642CBA95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E68A589B-740F-40F8-A2C3-0B4D497AC94B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E68A589B-740F-40F8-A2C3-0B4D497AC94B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E68A589B-740F-40F8-A2C3-0B4D497AC94B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E68A589B-740F-40F8-A2C3-0B4D497AC94B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B506EED7-11B0-43CC-9DA2-0A96642CBA95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B506EED7-11B0-43CC-9DA2-0A96642CBA95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B506EED7-11B0-43CC-9DA2-0A96642CBA95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B506EED7-11B0-43CC-9DA2-0A96642CBA95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A3726D2-7034-44C0-835A-431CB0B8447D}
+	EndGlobalSection
+EndGlobal
