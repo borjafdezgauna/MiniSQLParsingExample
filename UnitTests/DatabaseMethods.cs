@@ -28,6 +28,7 @@ namespace UnitTests
             //initalize
 
             string result = database.ExecuteMiniSQLQuery("SELECT ...");
+            Assert.Equals("{'Name','Age','Height'}...", result);
         }
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniSQL", "MiniSQL\MiniSQL.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{B506EED7-11B0-43CC-9DA2-0A96642CBA95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseArguments", "ParseArguments\ParseArguments.csproj", "{24FCA180-8048-44A5-9EA9-493687D347C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B506EED7-11B0-43CC-9DA2-0A96642CBA95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B506EED7-11B0-43CC-9DA2-0A96642CBA95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B506EED7-11B0-43CC-9DA2-0A96642CBA95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24FCA180-8048-44A5-9EA9-493687D347C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24FCA180-8048-44A5-9EA9-493687D347C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24FCA180-8048-44A5-9EA9-493687D347C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24FCA180-8048-44A5-9EA9-493687D347C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

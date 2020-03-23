@@ -28,7 +28,6 @@ namespace MiniSQL
 
         static List<string> CommaSeparatedNames(string text)
         {
-            return text;
         }
     }
 }
