@@ -38,13 +38,13 @@ steps:
 
 - task: GitHubRelease@1
   inputs:
-    gitHubConnection: 'borjafdezgauna'
+    gitHubConnection: 'github.com_borjafdezgauna'
     repositoryName: '$(Build.Repository.Name)'
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'userSpecifiedTag'
     tag: 'v1.1'
-    title: 'MiniSQL Example release'
+    title: 'MiniSQL example release'
     assets: '*.zip'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
