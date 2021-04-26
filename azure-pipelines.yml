@@ -36,3 +36,15 @@ steps:
   inputs:
     script: 'Bundler\bin\Release\Bundler.exe'
 
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'github.com_borjafdezgauna'
+    repositoryName: '$(Build.Repository.Name)'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'userSpecifiedTag'
+    tag: 'first-release'
+    title: 'MiniSQL example release'
+    assets: '*.zip'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
