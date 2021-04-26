@@ -9,29 +9,32 @@ namespace Bundler
 {
     class Program
     {
-        public static string RelPathToSolutionRootFolder = "../../../"; //relative path from Bundler.exe to the solution root folder 
-        public static string RootFolderInZip;
         public static void Main()
         {
+            //Set the folder where this program is as the working directory
+            //We need to do this so that relative paths work in the Azure agent
+            Directory.SetCurrentDirectory(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+
             List<string> files = new List<string>();
             string version;
 
-            string mainExe = RelPathToSolutionRootFolder + "ConsoleApp/bin/Release/ConsoleApp.exe";
-            string dbManagerDll = RelPathToSolutionRootFolder + "MiniSQL/bin/Release/MiniSQL.exe";
+            string relPathToSolutionRootFolder = "../../../"; //relative path from Bundler.exe to the solution root folder 
+            string mainExe = relPathToSolutionRootFolder + "ConsoleApp/bin/Release/ConsoleApp.exe";
+            string dbManagerDll = relPathToSolutionRootFolder + "MiniSQL/bin/Release/MiniSQL.exe";
             
             version = GetVersion(mainExe);
             if (version == null)
                 return;
 
-            RootFolderInZip = "OurProject/"; //name of the folder created inside the zip file
+            string rootFolderInZip = "OurProject/"; //name of the folder created inside the zip file
 
             files.Add(mainExe);
             files.Add(dbManagerDll);
 
-            string outputFile = RelPathToSolutionRootFolder + "OurProject-" + version + ".zip"; //name of the output zip file
+            string outputFile = relPathToSolutionRootFolder + "OurProject-" + version + ".zip"; //name of the output zip file
 
             Console.WriteLine("Compressing files");
-            Compress(outputFile, files);
+            Compress(outputFile, files, rootFolderInZip, relPathToSolutionRootFolder);
             Console.WriteLine("Finished");
         }
 
@@ -57,7 +60,7 @@ namespace Bundler
             {
                 modName = assemblyName.Name + ".dll";
                 depName = inFolder + modName;
-                if (System.IO.File.Exists(depName) && !dependencyList.Exists(name => name == depName))
+                if (File.Exists(depName) && !dependencyList.Exists(name => name == depName))
                 {
                     dependencyList.Add(depName);
                     if (bRecursive)
@@ -77,7 +80,7 @@ namespace Bundler
             return files;
         }
 
-        public static void Compress(string outputFilename, List<string> files)
+        public static void Compress(string outputFilename, List<string> files, string rootFolderInZip, string relPathToSolutionRootFolder)
         {
             uint numFilesAdded = 0;
             double totalNumFiles = (double)files.Count;
@@ -87,9 +90,9 @@ namespace Bundler
                 {
                     foreach (string file in files)
                     {
-                        if (System.IO.File.Exists(file))
+                        if (File.Exists(file))
                         {
-                            archive.CreateEntryFromFile(file, RootFolderInZip + file.Substring(RelPathToSolutionRootFolder.Length));
+                            archive.CreateEntryFromFile(file, rootFolderInZip + file.Substring(relPathToSolutionRootFolder.Length));
                             numFilesAdded++;
                         }
                         else Console.WriteLine("Couldn't find file: {0}", file);
