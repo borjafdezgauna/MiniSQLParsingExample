@@ -20,7 +20,7 @@ namespace Bundler
 
             string relPathToSolutionRootFolder = "../../../"; //relative path from Bundler.exe to the solution root folder 
             string mainExe = relPathToSolutionRootFolder + "ConsoleApp/bin/Release/ConsoleApp.exe";
-            string dbManagerDll = relPathToSolutionRootFolder + "MiniSQL/bin/Release/MiniSQL.exe";
+            string dbManagerDll = relPathToSolutionRootFolder + "MiniSQL/bin/Release/MiniSQL.dll";
             
             version = GetVersion(mainExe);
             if (version == null)
@@ -92,12 +92,12 @@ namespace Bundler
                     {
                         if (File.Exists(file))
                         {
-                            archive.CreateEntryFromFile(file, rootFolderInZip + file.Substring(relPathToSolutionRootFolder.Length));
+                            archive.CreateEntryFromFile(file, rootFolderInZip + Path.GetFileName(file));
                             numFilesAdded++;
                         }
                         else Console.WriteLine("Couldn't find file: {0}", file);
 
-                        Console.Write("\rProgress: {0:F2}%", 100.0 * ((double)numFilesAdded) / totalNumFiles);
+                        Console.WriteLine("\rProgress: {0:F2}%", 100.0 * ((double)numFilesAdded) / totalNumFiles);
                     }
                     Console.WriteLine("\nSaving {0} files in  {1}", numFilesAdded, Path.GetFullPath(outputFilename));
                 }
