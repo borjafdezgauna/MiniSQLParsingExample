@@ -43,7 +43,7 @@ steps:
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'userSpecifiedTag'
-    tag: 'v1.1'
+    tag: 'first-release'
     title: 'MiniSQL example release'
     assets: '*.zip'
     changeLogCompareToRelease: 'lastFullRelease'
