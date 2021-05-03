@@ -37,13 +37,14 @@ steps:
     script: 'Bundler\bin\Release\Bundler.exe'
 
 - task: GitHubRelease@1
+  condition: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
   inputs:
     gitHubConnection: 'github.com_borjafdezgauna'
     repositoryName: '$(Build.Repository.Name)'
-    action: 'create'
+    action: 'edit'
     target: '$(Build.SourceVersion)'
     tagSource: 'userSpecifiedTag'
-    tag: 'first-release'
+    tag: 'v1.1'
     title: 'MiniSQL example release'
     assets: '*.zip'
     changeLogCompareToRelease: 'lastFullRelease'
